@@ -1,26 +1,11 @@
-import { useState, useEffect } from 'react';
-import './PanelSuperior.css'; // Asegúrate de que el nombre coincida
+import './PanelSuperior.css';
 
-function PanelSuperior() {
-  const [isScrolled, setIsScrolled] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 100) {
-        setIsScrolled(true);
-      } else {
-        setIsScrolled(false);
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
+// Recibe la nota del jefe: { isScrolled }
+function PanelSuperior({ isScrolled }) {
   return (
     <header className={`header ${isScrolled ? 'scrolled' : ''}`}>
       
-      {/* VERSIÓN GRANDE */}
+      {/* Si isScrolled es falso, dibuja esto (el panel grande) */}
       {!isScrolled && (
         <div className="hero-section">
           <div className="hero-left">
@@ -40,7 +25,7 @@ function PanelSuperior() {
         </div>
       )}
 
-      {/* VERSIÓN PEQUEÑA */}
+      {/* Si isScrolled es verdadero, dibuja esto (el panel pequeño) */}
       {isScrolled && (
         <div className="navbar">
           <div className="navbar-left">
@@ -58,5 +43,4 @@ function PanelSuperior() {
   );
 }
 
-// Esta línea es la magia que permite usarlo en App.jsx
-export default PanelSuperior; 
+export default PanelSuperior;

@@ -7,5 +7,11 @@
 
 .content {
   background-color: #f4f4f4;
-  padding-top: 450px; /* Reserva el espacio del panel grande */
+  padding-top: 242px; /* Espacio para el panel grande */
+  transition: padding-top 0.3s ease; /* Transición suave */
 }
+
+/* Cuando se hace scroll, el espacio se reduce al del panel pequeño */
+/*.content-scrolled {
+  padding-top: 80px; 
+}*/
